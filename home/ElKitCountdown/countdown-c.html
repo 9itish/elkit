@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="application/javascript">
+  <title>Countdown Timer</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Ubuntu Mono';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      gap: 1rem;
+    }
+
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    #countdown-a, #countdown-b {
+      font-size: 5rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: 0 0 10px #e6e6e6;
+      padding: 2rem;
+      background: #FFEDED;
+      border: 1rem solid white;
+    }
+
+    .end-time-a, .end-time-b {
+  display: block;
+  font-size: 2rem;
+}
+
+.end-time-b small {
+  color: #666;
+  font-size: 80%;
+}
+
+.controls {
+  margin: 2rem 0;
+}
+
+    button {
+  padding: 0.6rem 1.2rem;
+  font-size: 2rem;
+  background: red;
+  color: white;
+  border: none;
+  font-family: "Ubuntu";
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <div class="countdown-container">
+    <div id="countdown-a">
+      <span class="days">A</span>:
+      <span class="hours">A</span>:
+      <span class="minutes">A</span>:
+      <span class="seconds">A</span>
+    </div>
+  </div>
+
+  <p>Until</p>
+
+  <p class="end-time-a"></p>
+
+  <div class="controls">
+    <button id="startButtonA">Start</button>
+    <button id="stopButtonA">Stop</button>
+  </div>
+
+  <hr>
+
+  <div class="countdown-container">
+    <div id="countdown-b">
+      <span class="days">A</span>:
+      <span class="hours">A</span>:
+      <span class="minutes">A</span>:
+      <span class="seconds">A</span>
+    </div>
+  </div>
+
+  <p>Until</p>
+
+  <p class="end-time-b"></p>
+
+  <div class="controls">
+    <button id="startButtonB">Start</button>
+    <button id="stopButtonB">Stop</button>
+    <button id="pauseButtonB">Pause</button>
+    <button id="resumeButtonB">Resume</button>
+  </div>
+
+  <script type="module">
+    import { ElkitCountdown } from '../../src/ElkitCountdown/ElkitCountdown.js';
+
+    const element = document.getElementById('countdown-a');
+
+    let fiveDaysAhead = new Date();
+    fiveDaysAhead = new Date(fiveDaysAhead.setDate(fiveDaysAhead.getDate() + 5));
+
+    console.log(fiveDaysAhead);
+
+    const countdownA = new ElkitCountdown({
+      wrapperSelector: '#countdown-a',
+      timeSelectors: { d: '.days', hh: '.hours', mm: '.minutes', ss: '.seconds' },
+      endTime: fiveDaysAhead
+    });
+
+    document.querySelector(".end-time-a").textContent = `${ElkitCountdown.formatDate(countdownA.endTime)}`;
+
+    document.getElementById("startButtonA").addEventListener("click", () => countdownA.start());
+    document.getElementById("stopButtonA").addEventListener("click", () => countdownA.stop());
+
+    const countdownB = new ElkitCountdown({
+      wrapperSelector: '#countdown-b',
+      timeSelectors: { d: '.days', hh: '.hours', mm: '.minutes', ss: '.seconds' },
+      endDuration: { d: 5, hh: 0, mm: 0, ss: 0 }
+    });
+
+    document.querySelector(".end-time-b").innerHTML = `${ElkitCountdown.formatDuration(countdownB.endDuration)}`;
+
+    document.getElementById("startButtonB").addEventListener("click", () => countdownB.start());
+    document.getElementById("stopButtonB").addEventListener("click", () => countdownB.stop());
+    document.getElementById("pauseButtonB").addEventListener("click", () => countdownB.pause());
+    document.getElementById("resumeButtonB").addEventListener("click", () => countdownB.resume());
+
+  </script>
+</body>
+</html>

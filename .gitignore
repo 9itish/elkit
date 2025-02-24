@@ -1,0 +1,24 @@
+# Ignore node_modules and dependencies
+node_modules/
+package.json
+package-lock.json
+
+# Ignore build and cache files
+*.log
+*.tmp
+*.cache
+
+# Ignore Rollup and NPM metadata
+dist/*.map
+dist/*.min.js.map
+home/*.map
+src/*.map
+
+# Ignore editor and OS-specific files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Ignore Rollup config files (if you don’t want them in the repo)
+rollup.config.js
+rollup.config.mjs
