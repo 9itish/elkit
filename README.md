@@ -1,4 +1,3 @@
-```markdown
 # ElKit
 
 ElKit is a lightweight, modular JavaScript library designed to simplify UI component development. It offers customizable, accessible, and easy-to-integrate components like Modals, Accordions, Countdowns, and more.
@@ -14,18 +13,43 @@ ElKit is a lightweight, modular JavaScript library designed to simplify UI compo
 
 You can include the CSS and JavaScript files for each component you need via CDN:
 
+### For CSS and JS (Minified for Production)
 ```html
-<script src="https://cdn.example.com/elkit.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.css">
+<script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.min.js"></script>
+```
+
+### For ESM (Module)
+```javascript
+import { ElKitModal } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.esm.js';
+```
+
+### For CommonJS (Node)
+```javascript
+const ElKitModal = require('https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.cjs.js');
+```
+
+### For UMD (Universal)
+```html
+<script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.umd.js"></script>
 ```
 
 ## Usage
 
-Since ElKit is modular, you can import only the components you need:
+Since ElKit is modular, you can import only the components you need using the appropriate format:
 
+### Using ESM (Module)
 ```javascript
-import Modal from 'elkit/modal';
-import Accordion from 'elkit/accordion';
-import Countdown from 'elkit/countdown';
+import { ElKitModal } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.esm.js';
+import { ElKitAccordion } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitAccordion/ElKitAccordion.esm.js';
+import { ElKitCountdown } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitCountdown/ElKitCountdown.esm.js';
+```
+
+### Using UMD (Universal)
+```html
+<script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitAccordion/ElKitAccordion.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitCountdown/ElKitCountdown.umd.js"></script>
 ```
 
 ## Components
@@ -34,7 +58,7 @@ import Countdown from 'elkit/countdown';
 Create dynamic, customizable modals with backdrop and keyboard support.
 
 ```javascript
-const modal = new Modal({
+const modal = new ElKitModal({
   width: '500px',
   backgroundColor: '#fff',
   closeOnBackdropClick: true
@@ -46,7 +70,7 @@ modal.open();
 Build collapsible content sections with ease.
 
 ```javascript
-const accordion = new Accordion({
+const accordion = new ElKitAccordion({
   multipleOpen: true
 });
 accordion.init();
@@ -56,7 +80,7 @@ accordion.init();
 Supports fixed end-time and duration-based modes, with pause and resume options.
 
 ```javascript
-const timer = new Countdown({
+const timer = new ElKitCountdown({
   duration: 60,
   onEnd: () => console.log('Time up!')
 });
@@ -81,4 +105,3 @@ For questions or feedback, feel free to reach out via [GitHub Issues](#).
 ---
 Happy coding with ElKit! ✨
 ```
-
