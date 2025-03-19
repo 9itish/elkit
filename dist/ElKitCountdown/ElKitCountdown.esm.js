@@ -337,4 +337,4 @@ class ElKitCountdown {
   }
 }
 
-export { ElKitCountdown };
+export { ElKitCountdown as default };

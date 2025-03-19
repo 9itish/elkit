@@ -1,4 +1,4 @@
-var ElKitAccordion = (function (exports) {
+var ElKitAccordion = (function () {
   'use strict';
 
   class ElKitAccordion {
@@ -113,8 +113,6 @@ var ElKitAccordion = (function (exports) {
     }
   }
 
-  exports.ElKitAccordion = ElKitAccordion;
+  return ElKitAccordion;
 
-  return exports;
-
-})({});
+})();

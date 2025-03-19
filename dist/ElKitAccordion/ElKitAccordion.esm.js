@@ -110,4 +110,4 @@ class ElKitAccordion {
   }
 }
 
-export { ElKitAccordion };
+export { ElKitAccordion as default };

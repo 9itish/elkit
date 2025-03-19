@@ -1,4 +1,4 @@
-var ElKitToast = (function (exports) {
+var ElKitToast = (function () {
   'use strict';
 
   class ElKitToast {
@@ -82,8 +82,6 @@ var ElKitToast = (function (exports) {
     }
   }
 
-  exports.ElKitToast = ElKitToast;
+  return ElKitToast;
 
-  return exports;
-
-})({});
+})();

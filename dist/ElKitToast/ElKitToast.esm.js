@@ -79,4 +79,4 @@ class ElKitToast {
   }
 }
 
-export { ElKitToast };
+export { ElKitToast as default };

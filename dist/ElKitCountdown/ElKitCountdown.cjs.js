@@ -339,4 +339,4 @@ class ElKitCountdown {
   }
 }
 
-exports.ElKitCountdown = ElKitCountdown;
+module.exports = ElKitCountdown;

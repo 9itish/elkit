@@ -1,4 +1,4 @@
-var ElKitTooltip = (function (exports) {
+var ElKitTooltip = (function () {
   'use strict';
 
   class ElKitTooltip {
@@ -139,8 +139,6 @@ var ElKitTooltip = (function (exports) {
     }
   }
 
-  exports.ElKitTooltip = ElKitTooltip;
+  return ElKitTooltip;
 
-  return exports;
-
-})({});
+})();

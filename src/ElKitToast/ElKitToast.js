@@ -1,4 +1,4 @@
-export class ElKitToast {
+export default class ElKitToast {
   #message;
   #type;
   #config;

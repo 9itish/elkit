@@ -40,9 +40,9 @@ Since ElKit is modular, you can import only the components you need using the ap
 
 ### Using ESM (Module)
 ```javascript
-import { ElKitModal } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.esm.js';
-import { ElKitAccordion } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitAccordion/ElKitAccordion.esm.js';
-import { ElKitCountdown } from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitCountdown/ElKitCountdown.esm.js';
+import ElKitModal from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitModal/ElKitModal.esm.js';
+import ElKitAccordion from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitAccordion/ElKitAccordion.esm.js';
+import ElKitCountdown from 'https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.2/dist/ElKitCountdown/ElKitCountdown.esm.js';
 ```
 
 ### Using UMD (Universal)

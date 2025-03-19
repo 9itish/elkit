@@ -136,4 +136,4 @@ class ElKitTooltip {
   }
 }
 
-export { ElKitTooltip };
+export { ElKitTooltip as default };

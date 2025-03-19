@@ -1,4 +1,4 @@
-var ElKitCountdown = (function (exports) {
+var ElKitCountdown = (function () {
   'use strict';
 
   class ElKitCountdown {
@@ -340,8 +340,6 @@ var ElKitCountdown = (function (exports) {
     }
   }
 
-  exports.ElKitCountdown = ElKitCountdown;
+  return ElKitCountdown;
 
-  return exports;
-
-})({});
+})();

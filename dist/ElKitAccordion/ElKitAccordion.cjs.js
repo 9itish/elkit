@@ -112,4 +112,4 @@ class ElKitAccordion {
   }
 }
 
-exports.ElKitAccordion = ElKitAccordion;
+module.exports = ElKitAccordion;

@@ -81,4 +81,4 @@ class ElKitToast {
   }
 }
 
-exports.ElKitToast = ElKitToast;
+module.exports = ElKitToast;

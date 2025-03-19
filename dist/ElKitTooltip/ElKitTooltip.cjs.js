@@ -138,4 +138,4 @@ class ElKitTooltip {
   }
 }
 
-exports.ElKitTooltip = ElKitTooltip;
+module.exports = ElKitTooltip;

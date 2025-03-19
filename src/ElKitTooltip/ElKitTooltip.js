@@ -1,4 +1,4 @@
-export class ElKitTooltip {
+export default class ElKitTooltip {
   #message;
   #config;
   #target;

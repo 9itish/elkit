@@ -1,4 +1,4 @@
-var ElKitModal = (function (exports) {
+var ElKitModal = (function () {
   'use strict';
 
   class ElKitModal {
@@ -173,12 +173,6 @@ var ElKitModal = (function (exports) {
     }
   }
 
-  if (typeof window !== 'undefined') {
-    window.ElKitModal = ElKitModal;
-  }
+  return ElKitModal;
 
-  exports.ElKitModal = ElKitModal;
-
-  return exports;
-
-})({});
+})();

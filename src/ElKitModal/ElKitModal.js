@@ -1,4 +1,4 @@
-export class ElKitModal {
+export default class ElKitModal {
   constructor({
     wrapperSelector = ".el-modal-wrapper",
     modalSelector = ".el-modal",
@@ -168,8 +168,4 @@ export class ElKitModal {
       this.onClose();
     }
   }
-}
-
-if (typeof window !== 'undefined') {
-  window.ElKitModal = ElKitModal;
 }

@@ -1,4 +1,4 @@
-export class ElKitCountdown {
+export default class ElKitCountdown {
   #wrapperElement;
   #timeElements;
   #endDateTime;

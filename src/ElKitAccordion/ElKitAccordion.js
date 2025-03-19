@@ -1,4 +1,4 @@
-export class ElKitAccordion {
+export default class ElKitAccordion {
   #accordion;
   #items;
   #alwaysOpen;
