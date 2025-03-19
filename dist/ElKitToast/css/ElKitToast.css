@@ -1,0 +1,89 @@
+.elkit-toast-container {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 10px;
+    padding: 10px;
+    --el-toast-success: #4CAF50;
+    --el-toast-error: #F44336;
+    --el-toast-warning: #FF8F07;
+    --el-toast-info: #2196F3;
+}
+
+.elkit-toast {
+    background: #fff;
+    color: black;
+    padding: 0.8em 1.2rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #eee;
+    width: fit-content;
+    position: relative;
+    font-weight: bold;
+    background: color-mix(in srgb, currentColor 20%, white);
+}
+
+.elkit-toast-success {
+    color: var(--el-toast-success);
+}
+
+.elkit-toast-error {
+    color: var(--el-toast-error);
+}
+
+.elkit-toast-warning {
+    color: var(--el-toast-warning);
+}
+
+.elkit-toast-info {
+    color: var(--el-toast-info);
+}
+
+.elkit-toast-top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.elkit-toast-top-left {
+    top: 10px;
+    left: 10px;
+    align-items: start;
+}
+
+.elkit-toast-bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.elkit-toast-bottom-left {
+    bottom: 10px;
+    left: 10px;
+    align-items: start;
+}
+
+.elkit-toast-hide {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.elkit-toast-close {
+    background: #e2e2e2;
+    color: black;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 2px 4px;
+    width: 20px;
+    height: 22px;
+    font-weight: bold;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    border-radius: 5px;
+}

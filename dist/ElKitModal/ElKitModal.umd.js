@@ -4,7 +4,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ElKitModal = {}));
 })(this, (function (exports) { 'use strict';
 
-  class ElkitModal {
+  class ElKitModal {
     constructor({
       wrapperSelector = ".el-modal-wrapper",
       modalSelector = ".el-modal",
@@ -15,6 +15,7 @@
       config: {
         closingKeys = ["Escape"],
         maxWidth = "800px",
+        maxHeight = "600px",
         scrollableBody = false
       } = {},
       onOpen,
@@ -28,7 +29,7 @@
       this.closers = document.querySelectorAll(closeSelector);
       this.openers = document.querySelectorAll(openSelector);
 
-      this.config = { closingKeys, maxWidth, scrollableBody };
+      this.config = { closingKeys, maxWidth, maxHeight, scrollableBody };
 
       this.onOpen = onOpen || (() => {});
       this.onClose = onClose || (() => {});
@@ -83,12 +84,12 @@
           let sourceElem = document.querySelector(sourceSelector);
           if (!sourceElem) {
             console.warn(
-              `ElkitModal: No content found for selector ${sourceSelector}`
+              `ElKitModal: No content found for selector ${sourceSelector}`
             );
             return;
           }
 
-          const modalInstance = new ElkitModal({
+          const modalInstance = new ElKitModal({
             ...options,
             sourceSelector
           });
@@ -99,7 +100,7 @@
     }
 
     setup() {
-      const allowedKeys = ["closingKeys", "maxWidth", "scrollableBody"];
+      const allowedKeys = ["closingKeys", "maxWidth", "scrollableBody", "maxHeight"];
 
       const invalidKeys = Object.keys(this.config).filter(
         (key) => !allowedKeys.includes(key)
@@ -122,10 +123,14 @@
         );
       }
 
+      if (this.config.maxHeight) {
+        this.modalElem.style.setProperty(
+          "--el-modal-max-height",
+          this.config.maxHeight
+        );
+      }
+
       if(this.modalSource) {
-
-        console.log(`The source was set!`);
-
         this.setContent(this.modalSource.innerHTML);
       }
 
@@ -135,7 +140,6 @@
 
       const modalContentElem = this.modalElem.querySelector(".el-modal-content");
 
-      // Using replaceChildren()
       modalContentElem.replaceChildren();
       
       if(content) {
@@ -145,7 +149,7 @@
 
     open() {
       if (this.modalElem) {
-        this.modalElem.style.display = "block";
+        this.modalElem.style.display = "flex";
         this.wrapperElem.style.display = "flex";
 
         if(!this.config.scrollableBody) {
@@ -172,6 +176,6 @@
     }
   }
 
-  exports.ElkitModal = ElkitModal;
+  exports.ElKitModal = ElKitModal;
 
 }));

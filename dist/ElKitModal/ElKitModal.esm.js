@@ -1,4 +1,4 @@
-class ElkitModal {
+class ElKitModal {
   constructor({
     wrapperSelector = ".el-modal-wrapper",
     modalSelector = ".el-modal",
@@ -9,6 +9,7 @@ class ElkitModal {
     config: {
       closingKeys = ["Escape"],
       maxWidth = "800px",
+      maxHeight = "600px",
       scrollableBody = false
     } = {},
     onOpen,
@@ -22,7 +23,7 @@ class ElkitModal {
     this.closers = document.querySelectorAll(closeSelector);
     this.openers = document.querySelectorAll(openSelector);
 
-    this.config = { closingKeys, maxWidth, scrollableBody };
+    this.config = { closingKeys, maxWidth, maxHeight, scrollableBody };
 
     this.onOpen = onOpen || (() => {});
     this.onClose = onClose || (() => {});
@@ -77,12 +78,12 @@ class ElkitModal {
         let sourceElem = document.querySelector(sourceSelector);
         if (!sourceElem) {
           console.warn(
-            `ElkitModal: No content found for selector ${sourceSelector}`
+            `ElKitModal: No content found for selector ${sourceSelector}`
           );
           return;
         }
 
-        const modalInstance = new ElkitModal({
+        const modalInstance = new ElKitModal({
           ...options,
           sourceSelector
         });
@@ -93,7 +94,7 @@ class ElkitModal {
   }
 
   setup() {
-    const allowedKeys = ["closingKeys", "maxWidth", "scrollableBody"];
+    const allowedKeys = ["closingKeys", "maxWidth", "scrollableBody", "maxHeight"];
 
     const invalidKeys = Object.keys(this.config).filter(
       (key) => !allowedKeys.includes(key)
@@ -116,10 +117,14 @@ class ElkitModal {
       );
     }
 
+    if (this.config.maxHeight) {
+      this.modalElem.style.setProperty(
+        "--el-modal-max-height",
+        this.config.maxHeight
+      );
+    }
+
     if(this.modalSource) {
-
-      console.log(`The source was set!`);
-
       this.setContent(this.modalSource.innerHTML);
     }
 
@@ -129,7 +134,6 @@ class ElkitModal {
 
     const modalContentElem = this.modalElem.querySelector(".el-modal-content");
 
-    // Using replaceChildren()
     modalContentElem.replaceChildren();
     
     if(content) {
@@ -139,7 +143,7 @@ class ElkitModal {
 
   open() {
     if (this.modalElem) {
-      this.modalElem.style.display = "block";
+      this.modalElem.style.display = "flex";
       this.wrapperElem.style.display = "flex";
 
       if(!this.config.scrollableBody) {
@@ -166,4 +170,4 @@ class ElkitModal {
   }
 }
 
-export { ElkitModal };
+export { ElKitModal };
