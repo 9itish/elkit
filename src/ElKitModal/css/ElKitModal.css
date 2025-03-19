@@ -1,0 +1,46 @@
+.el-modal-wrapper {
+    --elmodal-border-radius: 0px;
+    --elmodal-backdrop: rgba(0, 0, 0, 0.8);
+    --elmodal-close-background: #F00;
+}
+
+.el-modal-wrapper {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background: var(--elmodal-backdrop);
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.el-modal-content {
+    overflow-y: auto;
+}
+
+.el-modal {
+    background: white;
+    padding: 20px;
+    border-radius: var(--elmodal-border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 95%;
+    max-width: var(--el-modal-max-width);
+    max-height: var(--el-modal-max-height);
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.el-modal-close {
+    background: var(--elmodal-close-background);
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    margin-bottom: 1rem;
+    width: fit-content;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.2rem;
+    margin-left: auto;
+}

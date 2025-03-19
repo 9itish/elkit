@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ElKit Modal Demo</title>
+    <link rel="stylesheet" href="../../src/ElKitModal/css/ElKitModal.css">
     <style>
         * {
-            padding: 0;
-            margin: 0;
             box-sizing: border-box;
         }
 
@@ -23,13 +22,14 @@
             padding: 4rem 2rem;
         }
 
-        ol, ul {
+        ol,
+        ul {
             padding-left: 2rem;
         }
 
         button {
-            padding: 0.6rem 1.2rem;
-            font-size: 2rem;
+            padding: 0.6rem;
+            font-size: 1.2rem;
             background: yellowgreen;
             color: white;
             border: none;
@@ -38,34 +38,14 @@
             width: fit-content;
         }
 
-        .el-modal-wrapper {
-            position: fixed;
-            inset: 0;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-        }
-
-        .el-modal {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            width: 94%;
-            max-width: var(--el-modal-max-width);
-        }
-
-        .el-modal-close {
-            background: red;
-            color: white;
+        [data-el-modal] {
+            font-weight: bold;
             cursor: pointer;
-            display: block;
-            margin-right: 0;
-            margin-left: auto;
-            width: fit-content;
-            padding: 0.2rem 0.5rem;
-            font-size: 1.3rem;
+        }
+
+        span[data-el-modal] {
+            color: orangered;
+            
         }
 
         .first-modal {
@@ -74,165 +54,117 @@
     </style>
 </head>
 <body>
-    <h1>Quae cum magnifice primo dici viderentur, considerata minus probabantur.</h1>
 
-    <button data-el-modal=".first-modal">Open Modal</button>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Efficiens dici potest. <mark>Egone quaeris, inquit, quid
-            sentiam?</mark> Haec para/doca illi, nos admirabilia dicamus. </p>
-
-    <blockquote cite='http://loripsum.net'>
-        Si enim Zenoni licuit, cum rem aliquam invenisset inusitatam, inauditum quoque ei rei nomen inponere, cur non
-        liceat Catoni?
-    </blockquote>
-
-
-    <ol>
-        <li>Quid enim me prohiberet Epicureum esse, si probarem, quae ille diceret?</li>
-        <li>Somnum denique nobis, nisi requietem corporibus et is medicinam quandam laboris afferret, contra naturam
-            putaremus datum;</li>
-        <li>Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut quattuor;</li>
-        <li>Sed existimo te, sicut nostrum Triarium, minus ab eo delectari, quod ista Platonis, Aristoteli, Theophrasti
-            orationis ornamenta neglexerit.</li>
-        <li>Iam id ipsum absurdum, maximum malum neglegi.</li>
-        <li>Non minor, inquit, voluptas percipitur ex vilissimis rebus quam ex pretiosissimis.</li>
-    </ol>
-
-
-    <ul>
-        <li>Apud ceteros autem philosophos, qui quaesivit aliquid, tacet;</li>
-        <li>Si quidem, inquit, tollerem, sed relinquo.</li>
-        <li>Quae autem natura suae primae institutionis oblita est?</li>
-        <li>Si enim ad populum me vocas, eum.</li>
-        <li>Non enim ipsa genuit hominem, sed accepit a natura inchoatum.</li>
-    </ul>
-
-
-    <p>Dicimus aliquem hilare vivere; Duo Reges: constructio interrete. <a href='http://loripsum.net/'
-            target='_blank'>Bork</a> An potest cupiditas finiri? Quantum Aristoxeni ingenium consumptum videmus in
-        musicis? Est enim effectrix multarum et magnarum voluptatum. <a href='http://loripsum.net/'
-            target='_blank'>Primum divisit ineleganter;</a> <i>Satis est ad hoc responsum.</i> </p>
-
-    <h3>Audax negotium, dicerem impudens, nisi hoc institutum postea translatum ad philosophos nostros esset.</h3>
-
-    <p>Quis est tam dissimile homini. <b>Quid, de quo nulla dissensio est?</b> Bork Utram tandem linguam nescio? </p>
-
-    <button data-el-modal=".second-modal">Second Modal</button>
-
-    <h4>An me, inquis, tam amentem putas, ut apud imperitos isto modo loquar?</h4>
-
-    <p>Terram, mihi crede, ea lanx et maria deprimet. Polycratem Samium felicem appellabant. <b>Memini vero, inquam;</b>
-        Frater et T. </p>
-
-    <h2>Respondent extrema primis, media utrisque, omnia omnibus.</h2>
-
-    <p><a href='http://loripsum.net/' target='_blank'>Memini vero, inquam;</a> Memini me adesse P. </p>
-
+    <div id="output-b"></div>
 
     <div class="el-modal-wrapper">
         <div class="el-modal">
-            <p class="el-modal-close">Close Me</p>
+            <p class="el-modal-close">Close</p>
             <div class="el-modal-content">
             </div>
         </div>
     </div>
 
     <div class="first-modal">
-        <h1>At multis se probavit.</h1>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gloriosa ostentatio in constituendo summo bono. Sed
-            ea mala virtuti magnitudine obruebantur. Haeret in salebra. Non igitur bene. </p>
-
-        <p>Bork Duo Reges: constructio interrete. </p>
-
-        <h2>Sed nunc, quod agimus;</h2>
-
-        <p>Sed haec omittamus; Confecta res esset. Sed residamus, inquit, si placet. Quae diligentissime contra
-            Aristonem dicuntur a Chryippo. Inquit, dasne adolescenti veniam? </p>
-
-        <p>Magna laus. Quid nunc honeste dicit? Quae cum dixisset, finem ille. Compensabatur, inquit, cum summis
-            doloribus laetitia. </p>
     </div>
 
     <div class="second-modal">
-        <h1>Longum est enim ad omnia respondere, quae a te dicta sunt.</h1>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui autem esse poteris, nisi te amor ipse ceperit? Duo Reges: constructio interrete. Poterat autem inpune; Haec quo modo conveniant, non sane intellego. Inquit, dasne adolescenti veniam? Quae sequuntur igitur? </p>
-
-<ol>
-	<li>Quantam rem agas, ut Circeis qui habitet totum hunc mundum suum municipium esse existimet?</li>
-	<li>Nam et complectitur verbis, quod vult, et dicit plane, quod intellegam;</li>
-	<li>Sic consequentibus vestris sublatis prima tolluntur.</li>
-</ol>
     </div>
 
-    <h1>Quae cum magnifice primo dici viderentur, considerata minus probabantur.</h1>
+    <div class="third-modal">
+    </div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Efficiens dici potest. <mark>Egone quaeris, inquit, quid
-            sentiam?</mark> Haec para/doca illi, nos admirabilia dicamus. </p>
+    <div class="fourth-modal">
+    </div>
 
-    <blockquote cite='http://loripsum.net'>
-        Si enim Zenoni licuit, cum rem aliquam invenisset inusitatam, inauditum quoque ei rei nomen inponere, cur non
-        liceat Catoni?
-    </blockquote>
-
-
-    <ol>
-        <li>Quid enim me prohiberet Epicureum esse, si probarem, quae ille diceret?</li>
-        <li>Somnum denique nobis, nisi requietem corporibus et is medicinam quandam laboris afferret, contra naturam
-            putaremus datum;</li>
-        <li>Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut quattuor;</li>
-        <li>Sed existimo te, sicut nostrum Triarium, minus ab eo delectari, quod ista Platonis, Aristoteli, Theophrasti
-            orationis ornamenta neglexerit.</li>
-        <li>Iam id ipsum absurdum, maximum malum neglegi.</li>
-        <li>Non minor, inquit, voluptas percipitur ex vilissimis rebus quam ex pretiosissimis.</li>
-    </ol>
-
-
-    <ul>
-        <li>Apud ceteros autem philosophos, qui quaesivit aliquid, tacet;</li>
-        <li>Si quidem, inquit, tollerem, sed relinquo.</li>
-        <li>Quae autem natura suae primae institutionis oblita est?</li>
-        <li>Si enim ad populum me vocas, eum.</li>
-        <li>Non enim ipsa genuit hominem, sed accepit a natura inchoatum.</li>
-    </ul>
-
-
-    <p>Dicimus aliquem hilare vivere; Duo Reges: constructio interrete. <a href='http://loripsum.net/'
-            target='_blank'>Bork</a> An potest cupiditas finiri? Quantum Aristoxeni ingenium consumptum videmus in
-        musicis? Est enim effectrix multarum et magnarum voluptatum. <a href='http://loripsum.net/'
-            target='_blank'>Primum divisit ineleganter;</a> <i>Satis est ad hoc responsum.</i> </p>
-
-    <h3>Audax negotium, dicerem impudens, nisi hoc institutum postea translatum ad philosophos nostros esset.</h3>
-
-    <p>Quis est tam dissimile homini. <b>Quid, de quo nulla dissensio est?</b> Bork Utram tandem linguam nescio? </p>
-
-    <h4>An me, inquis, tam amentem putas, ut apud imperitos isto modo loquar?</h4>
-
-    <p>Terram, mihi crede, ea lanx et maria deprimet. Polycratem Samium felicem appellabant. <b>Memini vero, inquam;</b>
-        Frater et T. </p>
-
-    <h2>Respondent extrema primis, media utrisque, omnia omnibus.</h2>
-
-    <p><a href='http://loripsum.net/' target='_blank'>Memini vero, inquam;</a> Memini me adesse P. </p>
-
-
+    <script src="https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/HTMLEcho.js"></script>
 
     <script type="module">
-        import { ElkitModal } from '../../src/ElkitModal/ElkitModal.js';
+        import { ElKitModal } from '../../src/ElKitModal/ElKitModal.js';
 
-        let firstModal = new ElkitModal({
-            sourceSelector: '.first-modal',
-            config: {
-                closingKeys: ["Escape"],
-                maxWidth: "400px",
-                scrollableBody: true
+        ElKitModal.bindEvents();
+
+        const ModalHTMLEcho = new HTMLEcho("https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/files/dracula.txt");
+
+        function appendElementAfter(tagElem, modalSelector, elText, modElem) {
+            const buttonHTML = `<${modElem} data-el-modal="${modalSelector}">${elText}</${modElem}>`;
+            tagElem.insertAdjacentHTML('afterend', buttonHTML);
+        }
+
+        function addModalSpans(elem, modalSelector, elText, modElem) {
+
+            let sentences = elem.innerHTML.split(". ");
+            let secondSentence = sentences[0];
+
+            console.log(sentences);
+
+            secondSentence += `. You can also <${modElem} data-el-modal="${modalSelector}">${elText}</${modElem}> through a ${modElem} tag`;
+
+            sentences[1] = secondSentence;
+
+            elem.innerHTML = sentences.join(". ");
+            
+        }
+
+
+
+        ModalHTMLEcho.generateHTML('h2-1,p-5,h3-1,p-3,h3-1,p-4,ol-5,ul-5').then(html => {
+
+            let tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            let tagElems = tempDiv.querySelectorAll("p");
+
+            let totalTags = tagElems.length / 2;
+
+            let random1 = Math.floor(Math.random() * (totalTags - 2)) + 1;
+            let random2 = Math.floor(Math.random() * (totalTags - 2)) + 1;
+
+            while (Math.abs(random1 - random2) < 2) {
+                random2 = Math.floor(Math.random() * (totalTags - 2)) + 1;
             }
+
+            if (random1 > random2) {
+                [random1, random2] = [random2, random1];
+            }
+
+            appendElementAfter(tagElems[random1], '.first-modal', 'Open First Modal', 'button');
+
+            appendElementAfter(tagElems[random2], '.second-modal', 'Open Second Modal', 'button');
+
+            addModalSpans(tagElems[totalTags], '.third-modal', 'open a modal', 'span');
+
+            addModalSpans(tagElems[totalTags + 2], '.fourth-modal', 'configure a modal to open', 'mark');
+
+            document.getElementById("output-b").innerHTML = tempDiv.innerHTML;
         });
 
-        firstModal.open();
+        ModalHTMLEcho.generateHTML('h2-1,p-3,h3-1,p-2').then(html => {
+            document.querySelector(".first-modal").innerHTML = html;
 
-        ElkitModal.bindEvents();
+            let firstModal = new ElKitModal({
+                sourceSelector: '.first-modal',
+                config: {
+                    closingKeys: ["Escape"],
+                    maxWidth: "600px",
+                    scrollableBody: true
+                }
+            });
+
+            firstModal.open();
+        });
+
+        ModalHTMLEcho.generateHTML('h2-1,p-3,ul-6').then(html => {
+            document.querySelector(".second-modal").innerHTML = html;
+        });
+
+        ModalHTMLEcho.generateHTML('h2-1,p-3,ul-3,h2-1,p-4').then(html => {
+            document.querySelector(".third-modal").innerHTML = html;
+        });
+
+        ModalHTMLEcho.generateHTML('h2-1,p-1,ol-2').then(html => {
+            document.querySelector(".fourth-modal").innerHTML = html;
+        });
 
 
     </script>

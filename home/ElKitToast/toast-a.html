@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElKitToast Demo</title>
+    <link rel="stylesheet" href="../../src/ElKitToast/css/ElKitToast.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins';
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 4rem 2rem;
+        }
+
+        ol,
+        ul {
+            padding-left: 2rem;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ElKitToast Demo</h1>
+
+    <div id="output-b"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/HTMLEcho.js"></script>
+
+    <script type="module">
+
+        import { ElKitToast } from '../../src/ElKitToast/ElKitToast.js';
+
+        const TooltipHTMLEcho = new HTMLEcho("https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/files/absurd.txt");
+
+        function appendElementAfter(tagElem) {
+            const buttonHTML = `<button class="toast-btn" data-eltoast-msg="Boom! That worked. Even a broken clock gets it right twice a day!" data-eltoast-type="success">Success Toast</button><button class="toast-btn" data-eltoast-msg="Caution: Proceed with confidence, or whatever’s left of it." data-eltoast-type="warning">Warning Toast</button><button class="toast-btn" data-eltoast-msg="Mission failed. Time to blame the intern." data-eltoast-type="error">Error Toast</button><button class="toast-btn" data-eltoast-msg="FYI: This is one of those messages you’ll pretend to read." data-eltoast-type="info">Info Toast</button>`;
+            tagElem.insertAdjacentHTML('afterend', buttonHTML);
+        }
+
+        TooltipHTMLEcho.generateHTML('h2-1,p-5,h3-1,p-3,h2-1,p-4').then(html => {
+
+            let tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            let tagElems = tempDiv.querySelectorAll("p");
+
+            let totalTags = tagElems.length / 2;
+
+            let random1 = Math.floor(Math.random() * (totalTags - 2)) + 1;
+            let random2 = Math.floor(Math.random() * (totalTags - 2)) + 1;
+
+            while (Math.abs(random1 - random2) < 2) {
+                random2 = Math.floor(Math.random() * (totalTags - 2)) + 1;
+            }
+
+            if (random1 > random2) {
+                [random1, random2] = [random2, random1];
+            }
+
+            appendElementAfter(tagElems[random1]);
+
+            document.getElementById("output-b").innerHTML = tempDiv.innerHTML;
+
+            document.querySelectorAll(".toast-btn").forEach((elem) => {
+                elem.addEventListener("click", () => showToast(elem.dataset.eltoastMsg, elem.dataset.eltoastType)); 
+            });
+        
+        });
+
+        function showToast(message, type) {
+            let randix = Math.floor(Math.random() * 4);
+
+            let toastPosi = ["top-left", "top-right", "bottom-left", "bottom-right"];
+            let toastPos = toastPosi[randix];
+
+            const toast = new ElKitToast({ message, type, config: {duration: 3000, position: toastPos}});
+
+            toast.show();
+        }
+    </script>
+
+</body>
+</html>

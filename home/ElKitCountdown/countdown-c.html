@@ -108,7 +108,7 @@
   </div>
 
   <script type="module">
-    import { ElkitCountdown } from '../../src/ElkitCountdown/ElkitCountdown.js';
+    import { ElKitCountdown } from '../../src/ElKitCountdown/ElKitCountdown.js';
 
     const element = document.getElementById('countdown-a');
 
@@ -117,24 +117,24 @@
 
     console.log(fiveDaysAhead);
 
-    const countdownA = new ElkitCountdown({
+    const countdownA = new ElKitCountdown({
       wrapperSelector: '#countdown-a',
       timeSelectors: { d: '.days', hh: '.hours', mm: '.minutes', ss: '.seconds' },
       endTime: fiveDaysAhead
     });
 
-    document.querySelector(".end-time-a").textContent = `${ElkitCountdown.formatDate(countdownA.endTime)}`;
+    document.querySelector(".end-time-a").textContent = `${ElKitCountdown.formatDate(countdownA.endTime)}`;
 
     document.getElementById("startButtonA").addEventListener("click", () => countdownA.start());
     document.getElementById("stopButtonA").addEventListener("click", () => countdownA.stop());
 
-    const countdownB = new ElkitCountdown({
+    const countdownB = new ElKitCountdown({
       wrapperSelector: '#countdown-b',
       timeSelectors: { d: '.days', hh: '.hours', mm: '.minutes', ss: '.seconds' },
       endDuration: { d: 5, hh: 0, mm: 0, ss: 0 }
     });
 
-    document.querySelector(".end-time-b").innerHTML = `${ElkitCountdown.formatDuration(countdownB.endDuration)}`;
+    document.querySelector(".end-time-b").innerHTML = `${ElKitCountdown.formatDuration(countdownB.endDuration)}`;
 
     document.getElementById("startButtonB").addEventListener("click", () => countdownB.start());
     document.getElementById("stopButtonB").addEventListener("click", () => countdownB.stop());

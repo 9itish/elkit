@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins';
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 4rem 2rem;
+    }
+
+    .accordion {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-header {
+      background: #f7f7f7;
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .accordion-header:hover {
+      background: #e0e0e0;
+    }
+
+    .el-accordion-content-wrapper {
+      padding: 0;
+      background: #fff;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .el-accordion-content {
+      padding: 15px;
+    }
+
+    .accordion-item.active .accordion-header {
+      background: #dcdcdc;
+    }
+
+    .accordion-item.active .el-accordion-content-wrapper {
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="first-accordion" class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">What is JavaScript?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content"><p>JavaScript is a programming language used to create dynamic website content.</p></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">What is an Accordion?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content">
+          <p>An accordion is a UI pattern that allows users to expand and collapse sections of content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">How does this work?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content">
+          <p>Click on a question to toggle the visibility of its answer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="second-accordion" class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">What is JavaScript?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content"><p>JavaScript is a programming language used to create dynamic website content.</p></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">What is an Accordion?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content">
+          <p>An accordion is a UI pattern that allows users to expand and collapse sections of content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">How does this work?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content">
+          <p>Click on a question to toggle the visibility of its answer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { ElKitAccordion } from '../../src/ElKitAccordion/ElKitAccordion.js';
+
+    let firstAccordion = new ElKitAccordion({ selector: '#first-accordion', collapseOthers: true, openIndexes: [0], alwaysOpen: [0] });
+
+    let secondAccordion = new ElKitAccordion({ selector: '#second-accordion', collapseOthers: true, openIndexes: [2], alwaysOpen: [2] });
+
+    firstAccordion.addQuestion('Humble Pie?', 'I will definitely eat one!');
+
+    // No longer works because the property is now private!
+    firstAccordion.alwaysOpen = [document.querySelectorAll(".accordion-item")[1]];
+
+    console.log(firstAccordion.alwaysOpen);
+
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 'use strict';
 
-class ElkitCountdown {
+class ElKitCountdown {
   #wrapperElement;
   #timeElements;
   #endDateTime;
@@ -339,4 +339,4 @@ class ElkitCountdown {
   }
 }
 
-exports.ElkitCountdown = ElkitCountdown;
+exports.ElKitCountdown = ElKitCountdown;

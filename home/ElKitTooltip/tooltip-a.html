@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElKit Tooltip Demo</title>
+    <link rel="stylesheet" href="../../src/ElKitTooltip/css/ElKitTooltip.css">
+    <style>
+        body {
+            font-family: 'Poppins';
+            padding: 50px;
+        }
+
+        [data-elkit-tooltip] {
+            position: relative;
+        }
+
+        .singlet,
+        .couplet,
+        .polet {
+            font-weight: bold;
+        }
+
+        .singlet {
+            color: orangered;
+        }
+
+        .couplet {
+            color: blueviolet;
+        }
+
+        .polet {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ElKit Tooltip Demo</h1>
+
+    <div id="output-b"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/HTMLEcho.js"></script>
+
+    <script type="module">
+        import { ElKitTooltip } from '../../src/ElKitTooltip/ElKitTooltip.js';
+
+        ElKitTooltip.bindEvents();
+
+        const TooltipHTMLEcho = new HTMLEcho("https://cdn.jsdelivr.net/gh/9itish/html-echo@v1.0.0/files/dracula.txt");
+
+        TooltipHTMLEcho.generateHTML('h2-1,p-2,h3-1,p-1,h3-1,p-1,ol-3').then(html => {
+
+            let tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            let tagElems = tempDiv.querySelectorAll("h1, h2, h3, p, li");
+
+            tagElems.forEach(el => {
+                let words = el.innerHTML.split(/\s+/);
+                let newHTML = [];
+
+                for (let i = 0; i < words.length; i++) {
+
+                    if (words[i].length > 4) {
+
+                        let chance = Math.floor(Math.random() * 4);
+                        let directions = ['top', 'bottom', 'left', 'right'];
+                        let tooltipTexts = ['Look up! No, not that high.', 'Down here, where the secrets hide.', 'Wait… did you mean my left or yours?', 'You’re right… or are you?'];
+
+                        let direction = directions[chance];
+                        let tooltipText = tooltipTexts[chance];
+
+                        if (Math.random() < 0.1) {
+                            newHTML.push(`<span data-elkit-tooltip="${tooltipText}" data-eltip-position="${direction}" class="singlet">${words[i]}</span>`);
+                        } else if (Math.random() < 0.05 && i < words.length - 1) {
+                            newHTML.push(`<span data-elkit-tooltip="${tooltipText}" data-eltip-position="${direction}" class="couplet">${words[i]} ${words[i + 1]}</span>`);
+                            i++;
+                        } else if (Math.random() < 0.01 && i < words.length - 2) {
+                            newHTML.push(`<span data-elkit-tooltip="${tooltipText}" data-eltip-position="${direction}" class="polet">${words[i]} ${words[i + 1]} ${words[i + 2]}</span>`);
+                            i += 2;
+                        } else {
+                            newHTML.push(words[i]);
+                        }
+                    } else {
+                        newHTML.push(words[i]);
+                    }
+                }
+
+                el.innerHTML = newHTML.join(" ");
+            });
+
+            document.getElementById("output-b").innerHTML = tempDiv.innerHTML;
+        });
+    </script>
+
+</body>
+</html>

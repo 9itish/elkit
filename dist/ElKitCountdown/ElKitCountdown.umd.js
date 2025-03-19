@@ -4,7 +4,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ElKitCountdown = {}));
 })(this, (function (exports) { 'use strict';
 
-  class ElkitCountdown {
+  class ElKitCountdown {
     #wrapperElement;
     #timeElements;
     #endDateTime;
@@ -343,6 +343,6 @@
     }
   }
 
-  exports.ElkitCountdown = ElkitCountdown;
+  exports.ElKitCountdown = ElKitCountdown;
 
 }));
