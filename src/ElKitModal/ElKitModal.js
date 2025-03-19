@@ -169,3 +169,7 @@ export class ElKitModal {
     }
   }
 }
+
+if (typeof window !== 'undefined') {
+  window.ElKitModal = ElKitModal;
+}

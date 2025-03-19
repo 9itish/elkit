@@ -90,9 +90,6 @@ timer.start();
 ## Configuration
 Each component supports a variety of options for complete customization. Check the [Documentation](#) for detailed configuration options.
 
-## Accessibility
-ElKit components are designed with accessibility in mind, supporting ARIA roles and keyboard interactions.
-
 ## Contributing
 We welcome contributions! Please check out our [Contributing Guide](#) to get started.
 
@@ -101,7 +98,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 For questions or feedback, feel free to reach out via [GitHub Issues](#).
-
----
-Happy coding with ElKit! ✨
-```

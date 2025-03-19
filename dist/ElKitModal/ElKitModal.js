@@ -1,8 +1,5 @@
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ElKitModal = {}));
-})(this, (function (exports) { 'use strict';
+var ElKitModal = (function (exports) {
+  'use strict';
 
   class ElKitModal {
     constructor({
@@ -182,4 +179,6 @@
 
   exports.ElKitModal = ElKitModal;
 
-}));
+  return exports;
+
+})({});
