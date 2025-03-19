@@ -70,24 +70,28 @@
 
   <div id="first-accordion" class="accordion">
     <div class="accordion-item">
-      <div class="accordion-header">What is JavaScript?</div>
-      <div class="el-accordion-content-wrapper">
-        <div class="el-accordion-content"><p>JavaScript is a programming language used to create dynamic website content.</p></div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">What is an Accordion?</div>
+      <div class="accordion-header">Why is it called an accordion?</div>
       <div class="el-accordion-content-wrapper">
         <div class="el-accordion-content">
-          <p>An accordion is a UI pattern that allows users to expand and collapse sections of content.</p>
+          <p>Because “collapsible thingy with sections” didn’t sound as fancy.</p>
         </div>
       </div>
     </div>
     <div class="accordion-item">
-      <div class="accordion-header">How does this work?</div>
+      <div class="accordion-header">Can I use it to play music?</div>
       <div class="el-accordion-content-wrapper">
         <div class="el-accordion-content">
-          <p>Click on a question to toggle the visibility of its answer.</p>
+          <p>Only if your JavaScript skills are truly instrumental. Otherwise, it just collapses — no musical talents
+            included.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Can I customize the accordion’s design?</div>
+      <div class="el-accordion-content-wrapper">
+        <div class="el-accordion-content">
+          <p>Absolutely! Change colors, fonts, or add sparkles — just don’t make it look like a unicorn sneezed on your
+            UI.</p>
         </div>
       </div>
     </div>
@@ -97,7 +101,9 @@
     <div class="accordion-item">
       <div class="accordion-header">What is JavaScript?</div>
       <div class="el-accordion-content-wrapper">
-        <div class="el-accordion-content"><p>JavaScript is a programming language used to create dynamic website content.</p></div>
+        <div class="el-accordion-content">
+          <p>JavaScript is a programming language used to create dynamic website content.</p>
+        </div>
       </div>
     </div>
     <div class="accordion-item">
@@ -118,14 +124,15 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.4/dist/ElKitAccordion/ElKitAccordion.js"></script>
+
   <script type="module">
-    import { ElKitAccordion } from '../../src/ElKitAccordion/ElKitAccordion.js';
 
     let firstAccordion = new ElKitAccordion({ selector: '#first-accordion', collapseOthers: true, openIndexes: [0], alwaysOpen: [0] });
 
     let secondAccordion = new ElKitAccordion({ selector: '#second-accordion', collapseOthers: true, openIndexes: [2], alwaysOpen: [2] });
 
-    firstAccordion.addQuestion('Humble Pie?', 'I will definitely eat one!');
+    firstAccordion.addQuestion('Why does my accordion open slower than my morning alarm?', 'Might be the 5000ms transition you added. Snail mode isn’t trendy yet.');
 
     // No longer works because the property is now private!
     firstAccordion.alwaysOpen = [document.querySelectorAll(".accordion-item")[1]];

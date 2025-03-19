@@ -138,14 +138,15 @@
     <button id="resumeButtonB">Resume</button>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/gh/9itish/elkit@1.0.4/dist/ElKitCountdown/ElKitCountdown.js"></script>
+
   <script type="module">
-    import { ElKitCountdown } from '../../src/ElKitCountdown/ElKitCountdown.js';
 
     const element = document.getElementById('countdown-a');
     const countdownA = new ElKitCountdown({
       wrapperSelector: '#countdown-a',
       timeSelectors: { d: '.days .cnt', hh: '.hours .cnt', mm: '.minutes .cnt', ss: '.seconds .cnt' },
-      endTime: new Date("2025/02/26")
+      endTime: new Date("2025/06/26")
     });
 
     document.querySelector(".end-time-a").textContent = `${ElKitCountdown.formatDate(countdownA.endTime)}`;
